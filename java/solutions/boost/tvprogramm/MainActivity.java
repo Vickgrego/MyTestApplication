@@ -86,7 +86,7 @@ public class MainActivity extends AppCompatActivity
         {
             setTabsViewPager();
         }
-        //setTabsViewPager();
+        setTabsViewPager();
     }
 
     //retrieve data from database and display it into listview
@@ -136,8 +136,8 @@ public class MainActivity extends AppCompatActivity
                     @Override
                     public void onFailure(VolleyError error)
                     {
-                        dataBase.addChannelToTable(new Channel(0, "NO DATA", null, null, 0));
-                        setTabsViewPager();
+                        //dataBase.addChannelToTable(new Channel(0, "NO DATA", null, null, 0));
+                        //setTabsViewPager();
                     }
                 });
     }
