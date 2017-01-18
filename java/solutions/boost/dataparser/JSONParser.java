@@ -22,7 +22,7 @@ public class JSONParser
     //creates each instance of Channel/Categories
     //and saves instance to database
     @SuppressWarnings("unused")
-    public static void parseJSONtoDatabase(JSONArray response, DataBaseHelper dataBase)
+    public static void parseJSONtoChannelTable(JSONArray response, DataBaseHelper dataBase)
     {
         try {
             JSONArray array = response;

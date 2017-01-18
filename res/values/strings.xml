@@ -1,0 +1,11 @@
+<resources>
+    <string name="app_name">TV Program</string>
+    <string name="sortBydefault">Sort by default</string>
+    <string name="abc_sort">Sort alphabetically </string>
+    <string name="navigation_channel_list">Channel list </string>
+    <string name="navigation_category_list">Category list </string>
+    <string name="navigation_preferred_list">My favorite channels </string>
+    <string name="dialog_message">No Internet! </string>
+    <string name="dialog_title">Please, you should switch on your internet connection </string>
+
+</resources>

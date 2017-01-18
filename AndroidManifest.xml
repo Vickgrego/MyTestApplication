@@ -20,6 +20,14 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
+        <!-- ensure service runs in different process -->
+        <service
+            android:name="solutions.boost.internetservice.ServerService"
+            android:exported="false"
+            android:process=".serviceprocess">
+        </service>
+
     </application>
 
 </manifest>

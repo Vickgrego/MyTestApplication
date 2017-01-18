@@ -33,8 +33,6 @@ public class ChannelAdapter extends ArrayAdapter<Channel>
     protected final static int ITEM_LIST_LAYOUT = R.layout.channel_item_layout;
     private Context context;
 
-    //cache for to store images
-    private LruCache<Integer, Bitmap> cache;
     //loader for load bitmap with url and populate imageView
     private ImageLoader loader;
 
@@ -49,12 +47,6 @@ public class ChannelAdapter extends ArrayAdapter<Channel>
 
         //loader
         loader = (ImageLoader) ChannelPictLoader.getInstance(context).getImageLoader();
-
-        //init cache with 8 part of available memory in phone
-        //android docs recommends such size
-        final int maxMemory = (int) (Runtime.getRuntime().maxMemory() / 1024);
-        final int cacheSize = maxMemory / 8;
-        cache = new LruCache<>(cacheSize);
     }
 
     @Override
@@ -119,8 +111,7 @@ public class ChannelAdapter extends ArrayAdapter<Channel>
             viewHolder.image.setImageBitmap(cache.get(channel.getId()));
         }*/
 
-        //using volley networkImageView - coll!!!!!!!!
-        //now no need for cache
+        //using volley networkImageView - cool!!!!!!!!
         viewHolder.image.setImageUrl(channel.getPicture(), loader);
 
         viewHolder.textView.setText(channel.getName());
