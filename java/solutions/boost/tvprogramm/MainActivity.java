@@ -100,7 +100,7 @@ public class MainActivity extends AppCompatActivity
         filter.addAction(ServerService.SERVICE_FILTER);
         registerReceiver(mReceiver, filter);
 
-        if (dataBase.getChannelsCount() == 0)
+        if (dataBase.getChannelsCount() != 0)
         {
             setTabsViewPager();
         }
