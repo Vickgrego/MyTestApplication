@@ -17,16 +17,18 @@ public class Channel
     private String picture;
     private int category_id;
     private Bitmap channelPict;
+    private int preferred;
 
     public Channel(){}
 
-    public Channel (int id, String name, String url, String picture, int category_id)
+    public Channel(int id, String name, String url, String picture, int category_id, int pref)
     {
         this.id = id;
         this.name = name;
         this.url = url;
         this.picture = picture;
         this.category_id = category_id;
+        this.preferred = pref;
     }
 
     public Channel (int id, String name, String url, String picture, int category_id, Bitmap pict)
@@ -99,6 +101,16 @@ public class Channel
     public void setChannelPict(Bitmap channelPict)
     {
         this.channelPict = channelPict;
+    }
+
+    public int getPreferredKey()
+    {
+        return preferred;
+    }
+
+    public void setPreferredKey(int key)
+    {
+        preferred = key;
     }
 
 }

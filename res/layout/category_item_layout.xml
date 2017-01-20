@@ -4,47 +4,36 @@
               android:orientation="vertical"
               android:layout_width="match_parent"
               android:layout_height="wrap_content"
-              android:padding="5dp"
-             android:descendantFocusability="blocksDescendants">
+              android:padding="5dp">
 
     <com.android.volley.toolbox.NetworkImageView
         android:maxWidth="80dp"
         android:maxHeight="50dp"
         android:layout_width="80dp"
         android:layout_height="50dp"
-        android:id="@+id/channelpict"/>
+        android:id="@+id/categorypict"/>
 
     <TextView
         android:text="Channel Name"
-        android:textColor="@android:color/black"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/channelname"
+        android:textSize="16sp"
+        android:id="@+id/categorytitle"
         android:layout_marginLeft="25dp"
         android:layout_centerVertical="true"
-        android:layout_toRightOf="@+id/channelpict"
-        android:layout_toEndOf="@+id/channelpict"
+        android:layout_toRightOf="@+id/categorypict"
+        android:layout_toEndOf="@+id/categorypict"
         android:layout_marginStart="25dp">
     </TextView>
 
-    <CheckBox
-        android:text="is favorite"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/channelcheckBox"
-        android:layout_below="@+id/channelname"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentEnd="true"
-        android:checked="false"/>
-
     <TextView
         android:text="TextView"
+        android:visibility="invisible"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignTop="@+id/channelcheckBox"
+        android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
-        android:visibility="invisible"
-        android:id="@+id/id_container"/>
+        android:id="@+id/category_id_container"/>
 
 
 </RelativeLayout>

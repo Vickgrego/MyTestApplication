@@ -1,7 +1,13 @@
 package solutions.boost.tvprogramm;
 
+import android.content.BroadcastReceiver;
+import android.content.Context;
 import android.content.Intent;
+import android.content.IntentFilter;
+import android.database.Cursor;
 import android.support.design.widget.TabLayout;
+import android.support.v4.app.FragmentManager;
+import android.support.v4.content.LocalBroadcastManager;
 import android.support.v4.view.PagerAdapter;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AlertDialog;
@@ -11,11 +17,20 @@ import android.support.v7.view.ContextThemeWrapper;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.ArrayAdapter;
+import android.widget.ListView;
+import android.widget.Toast;
 
 import com.android.volley.VolleyError;
 
 import org.json.JSONArray;
 
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
+import java.util.List;
+
+import solutions.boost.channelstruct.Channel;
 import solutions.boost.database.DataBaseHelper;
 import solutions.boost.dataparser.JSONParser;
 import solutions.boost.internetservice.DownloadsManager;
@@ -28,12 +43,12 @@ public class MainActivity extends AppCompatActivity
     private DataBaseHelper dataBase;
 
     //init views
-    private Toolbar toolbar;
     private ViewPager mViewPager;
     private TabLayout mTabLayout;
     //tabs adapter
     private PagerAdapter mTabPagerAdapter;
 
+    private BroadcastReceiver mReceiver;
 
     @Override
     protected void onCreate(Bundle savedInstanceState)
@@ -41,17 +56,36 @@ public class MainActivity extends AppCompatActivity
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        mReceiver = new BroadcastReceiver()
+        {
+            @Override
+            public void onReceive(Context context, Intent intent)
+            {
+                Toast.makeText(getApplicationContext(), "Load is complete", Toast.LENGTH_LONG ).show();
+                setTabsViewPager();
+            }
+        };
+
         //create instance of database here
         dataBase = DataBaseHelper.getInstance(getApplicationContext());
-
-        //init toolbar for to display in all android versions
-        toolbar = (Toolbar) findViewById(R.id.toolbar_mainactivity);
-        setSupportActionBar(toolbar);
+        if (dataBase.getChannelsCount() == 0)
+        {
+            //check if internet available
+            if(DownloadsManager.isOnline(getApplicationContext()))
+            {
+                //start service to download
+                Intent iService = new Intent(this.getApplicationContext(), ServerService.class);
+                startService(iService);
+            }
+            else
+            {
+                showNoInternetDialog();
+            }
+        }
 
         //tablayout and viewpager
         mTabLayout = (TabLayout) findViewById(R.id.tab_layout);
         mViewPager = (ViewPager) findViewById(R.id.viewpager_mainactivity);
-
     }
 
     //retrieve data from database and display it into listview
@@ -61,75 +95,52 @@ public class MainActivity extends AppCompatActivity
     protected void onStart()
     {
         super.onStart();
-        /**
-         * if this database is empty
-         * run DownloadManager and populate database
-         */
+
+        IntentFilter filter = new IntentFilter();
+        filter.addAction(ServerService.SERVICE_FILTER);
+        registerReceiver(mReceiver, filter);
+
         if (dataBase.getChannelsCount() == 0)
-        {
-            //check if internet available
-            if(DownloadsManager.isOnline(getApplicationContext()))
-            {
-                //start service to download
-                Intent intenService = new Intent(this.getApplicationContext(), ServerService.class);
-                startService(intenService);
-            }
-            else
-            {
-                showNoInternetDialog();
-            }
-        }
-        else
         {
             setTabsViewPager();
         }
+
     }
 
+    @Override
+    protected void onResume()
+    {
+        super.onResume();
+
+    }
 
     //save all data
     //unregister broadcastreceiver and stop service
     protected void onStop()
     {
         super.onStop();
+        unregisterReceiver(mReceiver);
     }
 
 
     //set tabs and viewPager
     private void setTabsViewPager()
     {
-
-        mTabLayout.addTab(mTabLayout.newTab().setText("Tab 1"));
-        mTabLayout.addTab(mTabLayout.newTab().setText("Tab 2"));
-        mTabLayout.addTab(mTabLayout.newTab().setText("Tab 3"));
-
         //set tabs and viewpager only in there is data into data base
-        if(dataBase.getChannelsCount() > 0)
-        {
-            mTabPagerAdapter = new TabFragmentPagerAdapter(getSupportFragmentManager(), 3);
+        //if(dataBase != null && dataBase.getChannelsCount() > 0)
+        //
+            //init tabFragmentPageAdapter
+             mTabPagerAdapter = new TabFragmentPagerAdapter(getSupportFragmentManager(), getApplicationContext());
 
-            mViewPager.setAdapter(mTabPagerAdapter);
-            mViewPager.addOnPageChangeListener(new TabLayout.TabLayoutOnPageChangeListener(mTabLayout));
-            mTabLayout.addOnTabSelectedListener(new TabLayout.OnTabSelectedListener()
-            {
-                @Override
-                public void onTabSelected(TabLayout.Tab tab)
-                {
-                    mViewPager.setCurrentItem(tab.getPosition());
-                }
+             //set Adapter to view pager
+             mViewPager.setAdapter(mTabPagerAdapter);
 
-                @Override
-                public void onTabUnselected(TabLayout.Tab tab)
-                {
+             //set tablayout with viewpager
+             mTabLayout.setupWithViewPager(mViewPager);
 
-                }
-
-                @Override
-                public void onTabReselected(TabLayout.Tab tab)
-                {
-
-                }
-            });
-        }
+             // adding functionality to tab and viewpager to manage each other when a page is changed or when a tab is selected
+             mViewPager.addOnPageChangeListener(new TabLayout.TabLayoutOnPageChangeListener(mTabLayout));
+        //
     }
 
     //show alert dialog about no internet connection
@@ -163,20 +174,9 @@ public class MainActivity extends AppCompatActivity
     public boolean onOptionsItemSelected(MenuItem item)
     {
         switch (item.getItemId()) {
-            case R.id.default_sort:
+            case R.id.refresh:
             {
-                if (TabFragment.showSorted != false)
-                {
-                    TabFragment.showSorted = false;
-                }
-                return true;
-            }
-            case R.id.abc_sort:
-            {
-                if (TabFragment.showSorted != true)
-                {
-                    TabFragment.showSorted = true;
-                }
+                setTabsViewPager();
                 return true;
             }
             default:
@@ -184,4 +184,5 @@ public class MainActivity extends AppCompatActivity
         }
 
     }
+
 }

@@ -1,40 +1,34 @@
 package solutions.boost.tvprogramm;
 
 import android.content.Context;
-import android.content.Intent;
 import android.database.Cursor;
 import android.support.v4.widget.ResourceCursorAdapter;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.CheckBox;
 import android.widget.TextView;
+
 import com.android.volley.toolbox.ImageLoader;
 import com.android.volley.toolbox.NetworkImageView;
-
-import solutions.boost.channelstruct.Channel;
-import solutions.boost.database.DataBaseHelper;
 
 /**
  * Created on 14.01.2017.
  * creates adapter to populate channel listview
  */
-public class ChannelAdapter extends ResourceCursorAdapter
+public class CategoryAdapter extends ResourceCursorAdapter
 {
 
     private LayoutInflater inflater;
     private Cursor cursor;
     //reference to my layout for every item
-    private final static int ITEM_LIST_LAYOUT = R.layout.channel_item_layout;
+    private final static int ITEM_LIST_LAYOUT = R.layout.category_item_layout;
     private Context context;
 
     //loader for load bitmap with url and populate imageView
     private ImageLoader loader;
 
 
-
-
-    public ChannelAdapter (Context context, int layout, Cursor cursor, int flags)
+    public CategoryAdapter(Context context, int layout, Cursor cursor, int flags)
     {
         super(context, ITEM_LIST_LAYOUT, cursor, flags);
         this.context = context;
@@ -52,10 +46,9 @@ public class ChannelAdapter extends ResourceCursorAdapter
         ViewHolder viewHolder = new ViewHolder();
 
         //init all views once
-        viewHolder.textView = (TextView) view.findViewById(R.id.channelname);
-        viewHolder.image = (NetworkImageView) view.findViewById(R.id.channelpict);
-        viewHolder.checker = (CheckBox) view.findViewById(R.id.channelcheckBox);
-        viewHolder.id_container = (TextView) view.findViewById(R.id.id_container);
+        viewHolder.textView = (TextView) view.findViewById(R.id.categorytitle);
+        viewHolder.image = (NetworkImageView) view.findViewById(R.id.categorypict);
+        viewHolder.idcontainer = (TextView) view.findViewById(R.id.category_id_container);
 
         //set Tag to find holder in future
         view.setTag(viewHolder);
@@ -64,32 +57,13 @@ public class ChannelAdapter extends ResourceCursorAdapter
     }
 
     @Override
-    public void bindView(View view, final Context context, final Cursor cursor)
+    public void bindView(View view, Context context, Cursor cursor)
     {
         ViewHolder viewHolder = (ViewHolder) view.getTag();
         int id = cursor.getInt(0);
         String id_s = String.valueOf(id);
         String name = cursor.getString(1);  //0 is id, 1 is name, 3 is url for pict
-        String url = cursor.getString(3);
-
-        viewHolder.checker.setOnClickListener(new View.OnClickListener()
-        {
-            @Override
-            public void onClick(View v)
-            {
-                int checked = cursor.getInt(5);
-                DataBaseHelper data = DataBaseHelper.getInstance(context);
-
-                int id = Integer.parseInt(cursor.getString(0));
-
-                if(checked == 0)
-                    data.setChannelAsPreferred(id);
-                else if (checked ==1)
-                    data.unsetChannelAsPreferred(id);
-            }
-
-        });
-
+        String url = cursor.getString(2);
 
         //using volley networkImageView - cool!!!!!!!!
         viewHolder.image.setMaxHeight(50);
@@ -97,16 +71,15 @@ public class ChannelAdapter extends ResourceCursorAdapter
         viewHolder.image.setDefaultImageResId(R.drawable.image_load_error);
         viewHolder.image.setImageUrl(url, loader);
 
+        viewHolder.idcontainer.setText(id_s);
         viewHolder.textView.setText(name);
-        viewHolder.id_container.setText(id_s);
     }
 
 
     private static class ViewHolder
     {
         TextView textView;
+        TextView idcontainer;
         NetworkImageView image;
-        CheckBox checker;
-        TextView id_container; //invisible
     }
 }

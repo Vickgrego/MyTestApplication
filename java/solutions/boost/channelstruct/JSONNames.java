@@ -15,9 +15,14 @@ public class JSONNames
 
     // http://52.50.138.211:8080/ChanelAPI/categories - category list
     public static final String ID_CATEGORY = "id";
-    public static final String CATEGORY_TITLE = "id";
-    public static final String CATEGORY_PICT_URL = "id";
+    public static final String CATEGORY_TITLE = "title";
+    public static final String CATEGORY_PICT_URL = "picture";
 
-
+    //http://52.50.138.211:8080/ChanelAPI/programs/
+    public static final String CHANNEL_PROGRAMS_ID = "channel_id";
+    public static final String PROGRAMS_DATA = "date";
+    public static final String PROGRAMS_TIME = "time";
+    public static final String PROGRAMS_TITLE = "title";
+    public static final String PROGRAMS_DESCRIPTION = "description";
 
 }

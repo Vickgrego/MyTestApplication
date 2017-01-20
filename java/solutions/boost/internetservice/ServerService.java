@@ -5,6 +5,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.os.IBinder;
 import android.support.annotation.Nullable;
+import android.support.v4.content.LocalBroadcastManager;
 
 import com.android.volley.VolleyError;
 
@@ -24,6 +25,10 @@ public class ServerService extends Service
     private DataBaseHelper dataBase;
     private Context ctx;
 
+    public static final String SERVICE_FILTER = "com.boost.solution.internetservice.DONE";
+
+    //private LocalBroadcastManager broadcastManager;
+
     @Override
     public void onCreate()
     {
@@ -31,9 +36,13 @@ public class ServerService extends Service
 
         //create load manager and database
         ctx = getApplicationContext();
-        mLoadManager = new DownloadsManager(ctx);
+        mLoadManager = DownloadsManager.getInstance(ctx);
         dataBase = DataBaseHelper.getInstance(ctx);
+
+        //broadcastManager = LocalBroadcastManager.getInstance(getApplicationContext());
     }
+
+
 
     @Override
     public int onStartCommand(Intent intent, int flags, int startId)
@@ -42,9 +51,19 @@ public class ServerService extends Service
         //and save data into data base
         //must populate three data table
         //1-st set channel table in database
-        setChannelTable(DownloadsManager.CHANNELS_URL);
+        String url1 = DownloadsManager.CHANNELS_URL;
+        String url2 = DownloadsManager.CATEGORIES_URL;
+        String url3 = DownloadsManager.PROGRAMM_URL + System.currentTimeMillis();
+        setChannelTable(url1, url2, url3);
 
         return super.onStartCommand(intent, flags, startId);
+    }
+
+    public void sendResult()
+    {
+        Intent intent = new Intent();
+        intent.setAction(SERVICE_FILTER);
+        sendBroadcast(intent);
     }
 
     @Override
@@ -60,28 +79,71 @@ public class ServerService extends Service
         return null;
     }
 
-    public void setChannelTable(String URL)
+    public void setChannelTable(String URL1, String URL2, String URL3)
     {
             //implement callback to get data from Volley response
-            mLoadManager.getVolleyResponse(URL,
-                    new DownloadsManager.VolleyCallback()
-                    {
-                        //iterate through result and get JSON array
-                        //parse JSON array to SQL database
-                        @Override
-                        public void onSuccess(JSONArray result)
-                        {
-                            JSONParser.parseJSONtoChannelTable(result, dataBase);
-                        }
+            mLoadManager.getVolleyResponse(URL1,
+            new DownloadsManager.VolleyCallback()
+            {
+                //iterate through result and get JSON array
+                //parse JSON array to SQL database
+                @Override
+                public void onSuccess(JSONArray result)
+                {
+                    JSONParser.parseJSONtoChannelTable(result, dataBase);
+                    sendResult();
+                }
 
-                        @Override
-                        public void onFailure(VolleyError error)
-                        {
-                            //dataBase.addChannelToTable(new Channel(0, "NO DATA", null, null, 0));
-                            //handle error
-                            //error.getMessage() == 404
-                            //TODO
-                        }
-                    });
+                @Override
+                public void onFailure(VolleyError error)
+                {
+                    //dataBase.addChannelToTable(new Channel(0, "NO DATA", null, null, 0));
+                    //handle error
+                    //error.getMessage() == 404
+                    //TODO
+                }
+            });
+
+        mLoadManager.getVolleyResponse(URL2,
+                new DownloadsManager.VolleyCallback()
+                {
+                    //iterate through result and get JSON array
+                    //parse JSON array to SQL database
+                    @Override
+                    public void onSuccess(JSONArray result)
+                    {
+                        JSONParser.parseJSONtoCategoriesTable(result, dataBase);
+                    }
+
+                    @Override
+                    public void onFailure(VolleyError error)
+                    {
+                        //dataBase.addChannelToTable(new Channel(0, "NO DATA", null, null, 0));
+                        //handle error
+                        //error.getMessage() == 404
+                        //TODO
+                    }
+                });
+
+        mLoadManager.getVolleyResponse(URL3,
+                new DownloadsManager.VolleyCallback()
+                {
+                    //iterate through result and get JSON array
+                    //parse JSON array to SQL database
+                    @Override
+                    public void onSuccess(JSONArray result)
+                    {
+                        JSONParser.parseJSONtoProgramsTable(result, dataBase);
+                    }
+
+                    @Override
+                    public void onFailure(VolleyError error)
+                    {
+                        //dataBase.addChannelToTable(new Channel(0, "NO DATA", null, null, 0));
+                        //handle error
+                        //error.getMessage() == 404
+                        //TODO
+                    }
+                });
     }
 }

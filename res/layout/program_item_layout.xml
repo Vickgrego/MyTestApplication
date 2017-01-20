@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+              android:orientation="vertical"
+              android:layout_width="match_parent"
+              android:layout_height="wrap_content"
+              android:padding="5dp"
+
+             android:descendantFocusability="blocksDescendants">
+
+
+    <TextView
+        android:id="@+id/dataprogram"
+        android:textColor="@color/colorPrimaryDark"
+        android:text="TextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"
+        />
+
+    <TextView
+        android:text="TextView"
+        android:textColor="@color/colorPrimaryDark"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/timeprogram"
+        android:layout_below="@+id/dataprogram"
+        android:layout_margin="10dp"/>
+
+    <TextView
+        android:text="TextView"
+        android:textColor="@color/colorPrimaryDark"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:minWidth="250dp"
+        android:id="@+id/titleprogram"
+        android:layout_toEndOf="@+id/dataprogram"
+        android:layout_toRightOf="@+id/dataprogram"
+        android:layout_margin="10dp"/>
+
+    <TextView
+        android:text="TextView"
+        android:textColor="@color/colorPrimaryDark"
+        android:minWidth="250dp"
+        android:minHeight="40dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/titleprogram"
+        android:layout_toEndOf="@+id/timeprogram"
+        android:layout_toRightOf ="@+id/timeprogram"
+        android:id="@+id/descriptionprogramm"
+        android:layout_margin="10dp"/>
+</RelativeLayout>

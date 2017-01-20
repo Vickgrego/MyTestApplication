@@ -2,12 +2,8 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android"
       android:layout_width="wrap_content"
       android:layout_height="wrap_content">
-    <item android:id="@+id/default_sort"
-          android:title="@string/sortBydefault"
-          android:layout_width="wrap_content"
-          android:layout_height="wrap_content"/>
-    <item android:id="@+id/abc_sort"
-          android:title="@string/abc_sort"
+    <item android:id="@+id/refresh"
+          android:title="@string/refresh"
           android:layout_width="wrap_content"
           android:layout_height="wrap_content"/>
 </menu>
