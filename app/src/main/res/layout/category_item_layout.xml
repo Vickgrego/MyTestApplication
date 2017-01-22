@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+              android:orientation="vertical"
+              android:layout_width="match_parent"
+              android:layout_height="wrap_content"
+              android:padding="5dp">
+
+    <com.android.volley.toolbox.NetworkImageView
+        android:maxWidth="80dp"
+        android:maxHeight="50dp"
+        android:layout_width="80dp"
+        android:layout_height="50dp"
+        android:id="@+id/categorypict"/>
+
+    <TextView
+        android:text="Channel Name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="16sp"
+        android:id="@+id/categorytitle"
+        android:layout_marginLeft="25dp"
+        android:layout_centerVertical="true"
+        android:layout_toRightOf="@+id/categorypict"
+        android:layout_toEndOf="@+id/categorypict"
+        android:layout_marginStart="25dp">
+    </TextView>
+
+    <TextView
+        android:text="TextView"
+        android:visibility="invisible"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:id="@+id/category_id_container"/>
+
+
+</RelativeLayout>

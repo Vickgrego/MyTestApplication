@@ -1,0 +1,149 @@
+<?xml version="1.0" encoding="utf-8"?>
+<items version="2" >
+
+    <item
+        is-multidex="true"
+        jar="E:\VICTOR\Programming\Android_X\TVProgramm\app\build\intermediates\exploded-aar\com.android.support\design\25.1.0\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="30103d98fa5ed824b54af839c85e2111f9bde8ec">
+        <dex dex="E:\VICTOR\Programming\Android_X\TVProgramm\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.android.support-design-25.1.0_31391332fc9aadcb81a8cbcda8a269ef01b7cd01\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="E:\VICTOR\Programming\Android_X\TVProgramm\app\build\intermediates\exploded-aar\com.android.support\appcompat-v7\25.1.0\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="1630658fbc2d222b988603c27b4a4249586fbfe7">
+        <dex dex="E:\VICTOR\Programming\Android_X\TVProgramm\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.android.support-appcompat-v7-25.1.0_4e6f214fae11e30ab22a41b83badb6627ae4e152\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="E:\VICTOR\Programming\Android_X\TVProgramm\app\build\intermediates\exploded-aar\com.android.support\support-core-ui\25.1.0\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="aee64634871d88a419d59eb743c1258a60f19700">
+        <dex dex="E:\VICTOR\Programming\Android_X\TVProgramm\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.android.support-support-core-ui-25.1.0_b43c98061533546a499e3b1b0631151f1531fae7\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="E:\VICTOR\Programming\Android_X\TVProgramm\app\build\intermediates\incremental-runtime-classes\debug\instant-run.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="eb72d46bb3401c1c6bfa96e5c1217b8f9d143ab0">
+        <dex dex="E:\VICTOR\Programming\Android_X\TVProgramm\app\build\intermediates\transforms\dex\debug\folders\1000\10\instant-run_a9875d8fb6dee9967b2288b0e8f51b084b70bd79\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="D:\AndroidSDK\extras\android\m2repository\com\android\support\support-annotations\25.1.0\support-annotations-25.1.0.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="64cb6b229a8bdfd907bc8dd46839a0053e4c018d">
+        <dex dex="E:\VICTOR\Programming\Android_X\TVProgramm\app\build\intermediates\transforms\dex\debug\folders\1000\10\support-annotations-25.1.0_2846279fca1dfb66d05499be1393db77d5988d85\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="E:\VICTOR\Programming\Android_X\TVProgramm\app\build\intermediates\exploded-aar\com.android.support\support-vector-drawable\25.1.0\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="e79aa3d9a16f8c9f16377c0608de70a8f31e5d80">
+        <dex dex="E:\VICTOR\Programming\Android_X\TVProgramm\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.android.support-support-vector-drawable-25.1.0_32807f19981a5ef67e5a35c355932df7d5fc179a\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="E:\VICTOR\Programming\Android_X\TVProgramm\app\build\intermediates\exploded-aar\com.android.volley\volley\1.0.0\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="2cd4b982617e544728de0782d718a58ce1b06e3f">
+        <dex dex="E:\VICTOR\Programming\Android_X\TVProgramm\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.android.volley-volley-1.0.0_0dd5596ea86446dd3cfc24f6d444370f1c186bbe\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="E:\VICTOR\Programming\Android_X\TVProgramm\app\build\intermediates\exploded-aar\com.android.support\transition\25.1.0\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="d38084015027549951cbaea5d5f6fb795cc81151">
+        <dex dex="E:\VICTOR\Programming\Android_X\TVProgramm\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.android.support-transition-25.1.0_d4e3143faff98d446805ada77431b6c09e16a9b6\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="E:\VICTOR\Programming\Android_X\TVProgramm\app\build\intermediates\exploded-aar\com.android.support\support-v4\25.1.0\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="d7c42c80f6509b9ea4db28ca7859ffae08ec5741">
+        <dex dex="E:\VICTOR\Programming\Android_X\TVProgramm\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.android.support-support-v4-25.1.0_f690ca720eba9bf6c664b74c5fff57c06bceeb34\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="E:\VICTOR\Programming\Android_X\TVProgramm\app\build\intermediates\exploded-aar\com.android.support\support-core-utils\25.1.0\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="0a0ef86b7fa568a52bf6214a0326ca1f1d618da7">
+        <dex dex="E:\VICTOR\Programming\Android_X\TVProgramm\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.android.support-support-core-utils-25.1.0_67da34ad9fc2ac81b0fb555cbd3ee34c224d62a4\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="E:\VICTOR\Programming\Android_X\TVProgramm\app\build\intermediates\exploded-aar\com.android.support\recyclerview-v7\25.1.0\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="b266c8faa5af72e579b9da36ef35053ffed6ac64">
+        <dex dex="E:\VICTOR\Programming\Android_X\TVProgramm\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.android.support-recyclerview-v7-25.1.0_8a5f59b678b5224f0c55e3f381b032b9504eab17\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="E:\VICTOR\Programming\Android_X\TVProgramm\app\build\intermediates\exploded-aar\com.android.support\support-media-compat\25.1.0\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="f02263e35e52668dd17b73bf961437e3d562b35f">
+        <dex dex="E:\VICTOR\Programming\Android_X\TVProgramm\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.android.support-support-media-compat-25.1.0_def475f676cf945c9da648c1b83990a586583d68\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="E:\VICTOR\Programming\Android_X\TVProgramm\app\build\intermediates\exploded-aar\com.android.support\animated-vector-drawable\25.1.0\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="6fb6ac3e8d3b9013819920d9ea11f3803c4c0033">
+        <dex dex="E:\VICTOR\Programming\Android_X\TVProgramm\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.android.support-animated-vector-drawable-25.1.0_2acc0ff22d5157b45595805908db5ee90ad64d9b\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="E:\VICTOR\Programming\Android_X\TVProgramm\app\build\intermediates\incremental-classes\debug\instant-run-bootstrap.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="6bbbbade5a4ee26b0920c4d8cb5404f64260535a">
+        <dex dex="E:\VICTOR\Programming\Android_X\TVProgramm\app\build\intermediates\transforms\dex\debug\folders\1000\10\instant-run-bootstrap_ebf478b068ee0a44295f1cd574b34c9ba2b92596\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="E:\VICTOR\Programming\Android_X\TVProgramm\app\build\intermediates\exploded-aar\com.android.support\support-fragment\25.1.0\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="2a53c4f3518116b8c6aee0e477233f0f7da8616f">
+        <dex dex="E:\VICTOR\Programming\Android_X\TVProgramm\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.android.support-support-fragment-25.1.0_9f0220b03ea0e037152b28fc94ca9893561b40b5\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="E:\VICTOR\Programming\Android_X\TVProgramm\app\build\intermediates\exploded-aar\com.android.support\support-compat\25.1.0\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="ca3c7aa31e2726a400a6e552b93cb9f63c9a1e6d">
+        <dex dex="E:\VICTOR\Programming\Android_X\TVProgramm\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.android.support-support-compat-25.1.0_92bbca5793a7012e1d2119c492701b0b0167afe1\classes.dex" />
+    </item>
+
+</items>

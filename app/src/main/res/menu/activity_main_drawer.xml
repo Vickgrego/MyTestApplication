@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <group android:checkableBehavior="single">
+        <item
+            android:id="@+id/channel_list_menu"
+            android:title="@string/navigation_channel_list"/>
+        <item
+            android:id="@+id/category_list_menu"
+            android:title="@string/navigation_category_list"/>
+        <item
+            android:id="@+id/preferred_list_menu"
+            android:title="@string/navigation_preferred_list"/>
+    </group>
+
+</menu>

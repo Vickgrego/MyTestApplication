@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/dayProgran"
+        android:title="@string/schedule_for_today">
+    </item>
+    <item
+        android:id="@+id/weekProgram"
+        android:title="@string/schedule_for_week">
+    </item>
+
+</menu>

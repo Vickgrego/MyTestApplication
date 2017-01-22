@@ -1,0 +1,17 @@
+<resources>
+    <string name="app_name">Тіві Ящик</string>
+    <string name="sortBydefault">Sort by default</string>
+    <string name="abc_sort">Sort alphabetically </string>
+    <string name="refresh">Refresh View </string>
+    <string name="navigation_channel_list">Список каналів </string>
+    <string name="navigation_category_list">По категоріям </string>
+    <string name="navigation_preferred_list">Це я люблю</string>
+    <string name="dialog_message">Лишенько! Нема інтернету!</string>
+    <string name="dialog_title">Будь ласочка, дайте трішки інету! </string>
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+    <string name="loading_content">Трішки доведеться почекати</string>
+    <string name="checker_isprefereed">До улюблених</string>
+    <string name="schedule_for_today">Програма на сьогодні</string>
+    <string name="schedule_for_week">Програма на тиждень</string>
+</resources>

@@ -1,0 +1,17 @@
+<resources>
+    <string name="app_name">TV Program</string>
+    <string name="sortBydefault">Sort by default</string>
+    <string name="abc_sort">Sort alphabetically </string>
+    <string name="refresh">Refresh View </string>
+    <string name="navigation_channel_list">Channel list </string>
+    <string name="navigation_category_list">Category list </string>
+    <string name="navigation_preferred_list">My favorite channels </string>
+    <string name="dialog_message">No Internet! </string>
+    <string name="dialog_title">Please, you should switch on your internet connection </string>
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+    <string name="loading_content">we start in a few second</string>
+    <string name="checker_isprefereed">add to favorite</string>
+    <string name="schedule_for_today">today TV schedule</string>
+    <string name="schedule_for_week">week TV schedule</string>
+</resources>
